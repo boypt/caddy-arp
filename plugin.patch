@@ -1,0 +1,24 @@
+diff --git a/caddy/caddymain/run.go b/caddy/caddymain/run.go
+index f7269c8..d4e1830 100644
+--- a/caddy/caddymain/run.go
++++ b/caddy/caddymain/run.go
+@@ -38,6 +38,7 @@ import (
+ 
+ 	_ "github.com/mholt/caddy/caddyhttp" // plug in the HTTP server type
+ 	// This is where other plugins get plugged in (imported)
++	_ "github.com/boypt/caddy-arp" // plug in the HTTP server type
+ )
+ 
+ func init() {
+diff --git a/caddyhttp/httpserver/plugin.go b/caddyhttp/httpserver/plugin.go
+index a35554b..4d7d899 100644
+--- a/caddyhttp/httpserver/plugin.go
++++ b/caddyhttp/httpserver/plugin.go
+@@ -629,6 +629,7 @@ var directives = []string{
+ 	"proxyprotocol", // github.com/mastercactapus/caddy-proxyprotocol
+ 
+ 	// directives that add middleware to the stack
++	"arp",
+ 	"locale", // github.com/simia-tech/caddy-locale
+ 	"log",
+ 	"cache", // github.com/nicolasazrak/caddy-cache
